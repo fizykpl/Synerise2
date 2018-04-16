@@ -70,14 +70,12 @@ if __name__ == "__main__":
     dp = DataProvider()
     exetime = int(round(time.time() * 1000))
     id = 50
-    mi = dp.similarity_measure.most_similar(id, top_limit = 10)
+    mi = dp.similarity_measure.most_similar(id, 3)
     exetime = int(round(time.time() * 1000)) - exetime
     print("total time {}[ms]".format( exetime))
-
+    print(mi)
     # Show
     dp.show_image(id)
     for id in mi:
         dp.show_image(id)
-
-
 

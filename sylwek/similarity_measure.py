@@ -48,6 +48,13 @@ class SimilarityMeasure:
         score_MI = self.pool.map(self._mutual_infomation_helper, parameters)
         return score_MI
 
+
+    def _mutual_infomation_helper(self,data):
+        source_id = data[0]
+        pred_id = data[1]
+        mi =  metrics.mutual_info_score(self.images[source_id], self.images[pred_id])
+        return mi
+
     def _mutual_infomation(self,source_id, pred_id):
         mi =  metrics.mutual_info_score(self.images[source_id], self.images[pred_id])
         return mi
